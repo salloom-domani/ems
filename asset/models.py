@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Department(models.Model):
     name = models.CharField(max_length=255)
@@ -9,6 +10,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=255)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL)
     is_admin = models.BooleanField()
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class Asset(models.Model):
     FINE = 'F'
