@@ -12,6 +12,13 @@ django-debug-toolbar = "*"
 pillow = "*"
 
 [dev-packages]
+pyyaml = "*"
+uritemplate = "*"
+django-rest-swagger = "*"
+black = "*"
 
 [requires]
 python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true
