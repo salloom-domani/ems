@@ -25,7 +25,7 @@ class Asset(models.Model):
     name = models.CharField(max_length=255)
     model = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='assets/')
     price = models.PositiveSmallIntegerField()
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default=FINE)
     brand = models.CharField(max_length=255)
