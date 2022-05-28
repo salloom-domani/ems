@@ -1,6 +1,5 @@
-
 from rest_framework.serializers import ModelSerializer
-from models import Asset, Department, Employee
+from .models import Asset, Department, Employee
 
 class AssetSerializer(ModelSerializer):
     class Meta:
