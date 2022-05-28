@@ -10,8 +10,8 @@ class Request(models.Model):
         ...
 
 class TransferRequest(Request):
-    from_department = models.ForeignKey(Department, on_delete=models.CASCADE)
-    to_department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    from_department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='+')
+    to_department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='+')
 
 class FixRequest(Request):
     HIGH = 'H'
