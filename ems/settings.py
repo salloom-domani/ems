@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'authentication',
     'notification',
     'asset',
+    'request',
 ]
 
 MIDDLEWARE = [
