@@ -3,7 +3,7 @@ from django.conf import settings
 
 class Department(models.Model):
     name = models.CharField(max_length=255)
-    admin = models.ForeignKey('Employee', on_delete=models.SET_NULL, null=True, related_name='my_departments')
+    admin = models.ForeignKey('Employee', on_delete=models.SET_NULL, null=True, blank=True, related_name='my_departments')
 
 
 class Employee(models.Model):
