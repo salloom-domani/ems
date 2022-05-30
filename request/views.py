@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from . import models
+from . import serializers
 
-# Create your views here.
+
+class RequestViewSet(ModelViewSet):
+    serializer_class = serializers.RequestSerializer
+    queryset = models.Request.objects.all()
+
+class FixRequestViewSet(ModelViewSet):
+    serializer_class = serializers.FixRequestSerializer
+    queryset = models.FixRequest.objects.all()
+
+class TransferRequestViewSet(ModelViewSet):
+    serializer_class = serializers.TransferRequestSerializer
+    queryset = models.TransferRequest.objects.all()
