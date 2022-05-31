@@ -32,6 +32,7 @@ urlpatterns = [
     path("auth/", include("djoser.urls.jwt")),
     path("asset/", include("asset.urls")),
     path("request/", include("request.urls")),
+    path("notification/", include("notification.urls")),
     path("api_schema/", schema_view, name="api_schema"),
     path("", swagger_view, name="swagger-ui"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
