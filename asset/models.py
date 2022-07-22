@@ -12,12 +12,19 @@ class Department(models.Model):
         related_name="my_departments",
     )
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Employee(models.Model):
     name = models.CharField(max_length=255)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
     is_admin = models.BooleanField()
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.name
+
 
 
 class Asset(models.Model):
@@ -41,3 +48,6 @@ class Asset(models.Model):
     reporter = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name="assets"
     )
+
+    def __str__(self) -> str:
+        return self.name
