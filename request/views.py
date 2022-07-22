@@ -1,4 +1,4 @@
-from rest_framework.viewsets import GenericViewSet, ReadOnlyModelViewSet
+from rest_framework.viewsets import GenericViewSet
 from rest_framework import mixins
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -12,10 +12,9 @@ class RequestViewSet(
     mixins.ListModelMixin,
     GenericViewSet,
 ):
-    serializer_class = serializers.RequestSerializer
     queryset = models.Request.objects.all()
 
-    @action(detail=True, methods=["get"])
+    @action(detail=True, methods=['GET'])
     def approve(self, request, pk=None):
         request_object = self.get_object()
         request_object.approve(1)
@@ -34,8 +33,12 @@ class FixRequestViewSet(
     mixins.ListModelMixin,
     GenericViewSet,
 ):
-    serializer_class = serializers.FixRequestSerializer
     queryset = models.FixRequest.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return serializers.CreateFixRequestSerializer
+        return serializers.FixRequestSerializer
 
 
 class TransferRequestViewSet(
@@ -44,5 +47,9 @@ class TransferRequestViewSet(
     mixins.ListModelMixin,
     GenericViewSet,
 ):
-    serializer_class = serializers.TransferRequestSerializer
     queryset = models.TransferRequest.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return serializers.CreateTransferRequestSerializer
+        return serializers.TransferRequestSerializer
