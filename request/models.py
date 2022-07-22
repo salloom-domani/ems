@@ -2,6 +2,7 @@ from django.db import models
 from asset.models import Asset, Department
 
 class Request(models.Model):
+    type = models.CharField(max_length=50)
     asset = models.ForeignKey(Asset, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     approve_number = models.PositiveSmallIntegerField(default=0)
