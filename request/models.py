@@ -10,6 +10,9 @@ class Request(models.Model):
     def get_approve_level(self):
         ...
 
+    def approve(self, user_type):
+        self.approve_number += user_type
+
 class TransferRequest(Request):
     from_department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='+')
     to_department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='+')
