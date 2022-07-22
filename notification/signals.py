@@ -9,12 +9,10 @@ def create_notification_for_new_request(sender, instance, **kwargs):
     if kwargs['created']:
         request_type = instance.type
         asset = instance.asset
-        print(sender)
-        print(instance)
         user = asset.reporter.user
         note = ''
         if request_type == 'fixrequest':
-            note = f'We have to fix ({asset.name}) asset with {asset.severity} severity'
+            note = f'We have to fix ({asset.name}) asset with {instance.severity} severity'
         elif request_type == 'transferrequest':
             from_department = instance.from_department
             to_department = instance.to_department
