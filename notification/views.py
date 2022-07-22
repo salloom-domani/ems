@@ -1,8 +1,8 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from . import models
 from . import serializers
 
 
-class NotificationViewSet(ModelViewSet):
+class NotificationViewSet(ReadOnlyModelViewSet):
     serializer_class = serializers.NotificationSerializer
     queryset = models.Notification.objects.all()
