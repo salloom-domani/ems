@@ -1,7 +1,7 @@
 ## Requirements
 
 you should have installed in your machine
-1. python 3.8 or higher
+1. python 3.10 or higher
 2. pipenv pakcage which you can install it with
 
     ```
@@ -40,7 +40,7 @@ you should have installed in your machine
 
 ## Additional Commands
 
-- you can create an admin user to acces the admin page
+- you can create an admin user to access the admin page
 
     ```
     python manage.py createsuperuser    
