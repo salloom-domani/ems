@@ -12,5 +12,9 @@ class DepartmentViewSet(ModelViewSet):
     queryset = models.Department.objects.all()
 
 class EmployeeViewSet(ModelViewSet):
-    serializer_class = serializers.EmployeeSerializer
     queryset = models.Employee.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return serializers.CreateEmployeeSerializer
+        return serializers.EmployeeSerializer
